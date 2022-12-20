@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace PersonasAPI.Controllers
+namespace PersonasAPI.Application.Controllers
 {
     [ApiController]
     [Route("[controller]")]
