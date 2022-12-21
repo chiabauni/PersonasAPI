@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PersonasAPI.Infrastructure.Db;
 
@@ -11,9 +12,10 @@ using PersonasAPI.Infrastructure.Db;
 namespace PersonasAPI.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20221221230455_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,9 +33,7 @@ namespace PersonasAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Categoria")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("nvarchar(max)")
-                        .HasComputedColumnSql("CASE\r\n	WHEN FLOOR(DATEDIFF(DAY, FechaNacimiento, GETDATE())/365.25) < 11 THEN 'Niños' 	\r\n	WHEN FLOOR(DATEDIFF(DAY, FechaNacimiento, GETDATE())/365.25) >=11 AND FLOOR(DATEDIFF(DAY, FechaNacimiento, GETDATE())/365.25) < 18 THEN 'Adolescentes'\r\n	WHEN FLOOR(DATEDIFF(DAY, FechaNacimiento, GETDATE())/365.25)>=18 AND FLOOR(DATEDIFF(DAY, FechaNacimiento, GETDATE())/365.25) < 80 THEN 'Adultos'\r\n	WHEN FLOOR(DATEDIFF(DAY, FechaNacimiento, GETDATE())/365.25) >=80 THEN 'Octogenario'\r\nEND ");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
