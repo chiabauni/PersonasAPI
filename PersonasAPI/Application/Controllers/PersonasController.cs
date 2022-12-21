@@ -44,7 +44,7 @@ namespace PersonasAPI.Application.Controllers
 
         // PUT: api/Personas/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        /*[HttpPut("{id}")]
         public async Task<IActionResult> PutPersona(int id, Persona persona)
         {
             if (id != persona.Id)
@@ -71,7 +71,7 @@ namespace PersonasAPI.Application.Controllers
             }
 
             return NoContent();
-        }
+        }*/
 
         // POST: api/Personas
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -85,7 +85,7 @@ namespace PersonasAPI.Application.Controllers
         }
 
         // DELETE: api/Personas/5
-        [HttpDelete("{id}")]
+        /*[HttpDelete("{id}")]
         public async Task<IActionResult> DeletePersona(int id)
         {
             var persona = await _context.Persona.FindAsync(id);
@@ -103,6 +103,6 @@ namespace PersonasAPI.Application.Controllers
         private bool PersonaExists(int id)
         {
             return _context.Persona.Any(e => e.Id == id);
-        }
+        }*/
     }
 }
