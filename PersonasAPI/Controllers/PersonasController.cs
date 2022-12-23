@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using PersonasAPI.Infrastructure.Db;
 using PersonasAPI.Model;
 
-namespace PersonasAPI.Application.Controllers
+namespace PersonasAPI.Controllers
 {
     [Route("api/personas")]
     [ApiController]
@@ -30,8 +30,15 @@ namespace PersonasAPI.Application.Controllers
 
         // POST: api/personas
         [HttpPost]
-        public async Task<ActionResult<Persona>> PostPersona(Persona persona)
+        public async Task<ActionResult<Persona>> PostPersona(NuevaPersonaDTO nuevaPersona)
         {
+            Console.WriteLine(nuevaPersona);
+            Console.WriteLine(Convert.ToDateTime(nuevaPersona.FechaNacimiento));
+            var persona = new Persona()
+            {
+                Nombre = nuevaPersona.Nombre,
+                FechaNacimiento = nuevaPersona.FechaNacimiento
+            };
             _context.Persona.Add(persona);
             await _context.SaveChangesAsync();
 

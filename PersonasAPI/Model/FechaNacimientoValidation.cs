@@ -6,10 +6,10 @@ namespace PersonasAPI.Model
     {
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
-            var persona = validationContext.ObjectInstance as Persona;
+            var persona = validationContext.ObjectInstance as NuevaPersonaDTO;
             if (persona?.FechaNacimiento.GetType() != typeof(DateTime))
             {
-                return new ValidationResult("El formato de la fecha no es el correcto");
+                return new ValidationResult("El formato de la fecha no es el correcto", (IEnumerable<string>?)persona?.FechaNacimiento.GetType());
             }
             var edad = DateTime.Now.Year - persona?.FechaNacimiento.Year;
             var yaCumplioAnios = DateTime.Now.Month > persona?.FechaNacimiento.Month;
