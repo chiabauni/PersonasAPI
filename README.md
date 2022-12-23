@@ -25,8 +25,7 @@ PENSAR bien donde ubicar esta lógica y en donde iría esta responsabilidad.
 
 Tratar de identificar/aplicar 2 o 3 patrones de diseño en el backend.
     
-    ---
-    
+---
 
 1. ¿Qué es un ORM? Ventajas y desventajas.
     
